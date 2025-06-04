@@ -24,6 +24,7 @@ module "eks_cluster" {
   private_subnet_ids = var.existing_private_subnet_ids
   cluster_role_arn   = module.eks_iam_roles.cluster_role_arn # Role do Cluster EKS
   common_tags        = local.common_tags
+  vpc_cni_role_arn = module.eks_vpc_cni_irsa.vpc_cni_role_arn
 }
 
 
@@ -69,4 +70,14 @@ module "eks_addons" {
 
   cluster_name = module.eks_cluster.cluster_name
   common_tags  = local.common_tags
+}
+
+# Módulo para a IAM Role do VPC CNI
+module "eks_vpc_cni_irsa" {
+  source = "./modules/eks_vpc_cni_irsa"
+
+  cluster_name      = module.eks_cluster.cluster_name
+  oidc_provider_arn = module.eks_cluster.oidc_provider_arn
+  oidc_provider_url = module.eks_cluster.oidc_provider_url
+  common_tags       = var.common_tags
 }

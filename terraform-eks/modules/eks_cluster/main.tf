@@ -86,3 +86,15 @@ resource "aws_iam_openid_connect_provider" "this" {
     Name = "${var.cluster_name}-oidc-provider"
   })
 }
+
+resource "aws_eks_addon" "vpc_cni" {
+  cluster_name             = aws_eks_cluster.this.name
+  addon_name               = "vpc-cni"
+  addon_version            = null # Verifique a versão mais recente compatível com sua versão do EKS
+  resolve_conflicts_on_create = "OVERWRITE" # ou NONE, mas OVERWRITE é comum para addons gerenciados
+  service_account_role_arn = var.vpc_cni_role_arn # Referencie o output da role que criamos
+
+  tags = merge(var.common_tags, {
+    Name = "${var.cluster_name}-vpc-cni-addon"
+  })
+}

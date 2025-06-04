@@ -32,3 +32,8 @@ output "cluster_shared_node_security_group_id" {
   description = "O ID do Security Group compartilhado entre os nós do cluster."
   value       = aws_security_group.cluster_shared_node_sg.id
 }
+
+output "oidc_provider_url" {
+  description = "A URL do OpenID Connect provider do cluster EKS."
+  value       = aws_iam_openid_connect_provider.this.url
+}

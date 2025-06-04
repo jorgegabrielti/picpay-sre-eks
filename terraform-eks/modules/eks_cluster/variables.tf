@@ -33,3 +33,8 @@ variable "common_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "vpc_cni_role_arn" {
+  description = "IAM Role ARN for the VPC CNI addon"
+  type        = string
+}
