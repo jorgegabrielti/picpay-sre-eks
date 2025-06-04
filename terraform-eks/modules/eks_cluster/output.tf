@@ -23,11 +23,6 @@ output "cluster_security_group_id" {
   value       = aws_security_group.cluster_sg.id
 }
 
-output "cluster_security_group_id" {
-  description = "O ID do Security Group principal do cluster EKS (gerenciado pelo EKS)."
-  value       = aws_eks_cluster.this.vpc_config[0].cluster_security_group_id
-}
-
 output "cluster_shared_node_security_group_id" {
   description = "O ID do Security Group compartilhado entre os nós do cluster."
   value       = aws_security_group.cluster_shared_node_sg.id
