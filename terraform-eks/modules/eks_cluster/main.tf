@@ -20,11 +20,11 @@ resource "aws_eks_cluster" "this" {
 
 resource "aws_security_group" "cluster_shared_node_sg" {
   name        = "${var.cluster_name}-ClusterSharedNodeSecurityGroup"
-  description = "Communication between all nodes in the cluster" [cite: 3]
+  description = "Communication between all nodes in the cluster"
   vpc_id      = var.vpc_id
 
   tags = merge(var.common_tags, {
-    Name = "${var.cluster_name}/ClusterSharedNodeSecurityGroup" [cite: 3]
+    Name = "${var.cluster_name}/ClusterSharedNodeSecurityGroup" 
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   })
 }
