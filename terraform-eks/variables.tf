@@ -53,7 +53,7 @@ variable "ng_instance_type" {
 variable "ng_ami_family" {
   description = "Família da AMI para o Managed Node Group (e.g., AmazonLinux2, AmazonLinux2023)."
   type        = string
-  default     = "AmazonLinux2023"
+  default     = "AL2023_x86_64_STANDARD"
 }
 
 variable "ng_desired_capacity" {
