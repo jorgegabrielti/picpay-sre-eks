@@ -32,7 +32,7 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
 # Anexa a política de VPC CNI ao Cluster Role (opcional, mas recomendado para gerenciamento de ENIs)
 resource "aws_iam_role_policy_attachment" "eks_vpc_cni_policy" {
   role       = aws_iam_role.eks_cluster_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceControllerForPrivateLink"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
 # IAM Role para os Managed Node Groups (Worker Nodes)
