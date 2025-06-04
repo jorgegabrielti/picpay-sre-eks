@@ -1,0 +1,37 @@
+# Exemplo de arquivo terraform.tfvars
+# Renomeie para terraform.tfvars antes de usar.
+
+aws_region = "us-east-1" # Região da AWS
+
+cluster_name = "picpay-sre-senior-cards"
+eks_kubernetes_version = "1.33"
+
+# **** ATENÇÃO: Preencha com os outputs do seu projeto terraform-network ****
+existing_vpc_id = "vpc-0c9dcb0a23f477ec3" # Exemplo: "vpc-xxxxxxxxxxxxxxxxx"
+existing_public_subnet_ids = [
+  "subnet-06b21f7baf0e35f2e", # Exemplo: "subnet-public-az1"
+  "subnet-0c003e0e5b0f8a695", # Exemplo: "subnet-public-az2"
+  "subnet-00845215a2c1c14d8"  # Exemplo: "subnet-public-az3"
+]
+existing_private_subnet_ids = [
+  "subnet-0f4812457d55755a4", # Exemplo: "subnet-private-az1"
+  "subnet-09fcdad3a92a59006", # Exemplo: "subnet-private-az2"
+  "subnet-08ddb2990727eebb2"  # Exemplo: "subnet-private-az3"
+]
+
+# Configurações do Managed Node Group
+ng_instance_type    = "m5.large"
+ng_ami_family       = "AmazonLinux2023"
+ng_desired_capacity = 2
+ng_min_size         = 1
+ng_max_size         = 10
+
+# Configurações do Karpenter
+karpenter_namespace        = "karpenter"
+karpenter_service_account_name = "karpenter"
+
+# Tags comuns (ajuste conforme necessário)
+common_tags = {
+  project     = "picpay-sre-senior-cards"
+  environment = "dev"
+}

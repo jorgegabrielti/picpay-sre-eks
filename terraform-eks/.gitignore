@@ -1,0 +1,50 @@
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+*.lock.hcl
+
+# Terraform plan files
+*.tfplan
+*.binary
+
+# Crash logs
+crash.log
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
+terraform.tfvars
+
+# Directory for Terraform providers/plugins
+.terraform/
+
+# Terraform lock file (optional: mantenha se versionar)
+# .terraform.lock.hcl
+
+# Terraform module/package archives
+*.zip
+*.tar.gz
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# MacOS metadata
+.DS_Store
+
+# Linux system files
+Thumbs.db
+
+# Log files
+*.log
