@@ -21,7 +21,7 @@ existing_private_subnet_ids = [
 
 # Configurações do Managed Node Group
 ng_instance_type    = "m5.large"
-ng_ami_family       = "AmazonLinux2023"
+ng_ami_family       = "AL2023_x86_64_STANDARD"
 ng_desired_capacity = 2
 ng_min_size         = 1
 ng_max_size         = 10
