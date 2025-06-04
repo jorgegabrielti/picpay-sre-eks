@@ -32,7 +32,7 @@ resource "aws_security_group" "cluster_shared_node_sg" {
 
 resource "aws_security_group_ingress_rule" "ingress_default_cluster_to_node_sg" {
   security_group_id            = aws_security_group.cluster_shared_node_sg.id
-  description                  = "Allow managed and unmanaged nodes to communicate with each other (all ports)" [cite: 6]
+  description                  = "Allow managed and unmanaged nodes to communicate with each other (all ports)"
   from_port                    = 0
   to_port                      = 65535
   ip_protocol                  = "-1"
@@ -42,7 +42,7 @@ resource "aws_security_group_ingress_rule" "ingress_default_cluster_to_node_sg" 
 
 resource "aws_security_group_ingress_rule" "ingress_inter_node_group_sg" {
   security_group_id            = aws_security_group.cluster_shared_node_sg.id
-  description                  = "Allow nodes to communicate with each other (all ports)" [cite: 7]
+  description                  = "Allow nodes to communicate with each other (all ports)"
   from_port                    = 0
   to_port                      = 65535
   ip_protocol                  = "-1"
@@ -52,7 +52,7 @@ resource "aws_security_group_ingress_rule" "ingress_inter_node_group_sg" {
 
 resource "aws_security_group_ingress_rule" "ingress_node_to_default_cluster_sg" {
   security_group_id            = aws_eks_cluster.this.vpc_config[0].cluster_security_group_id # SG do Control Plane
-  description                  = "Allow unmanaged nodes to communicate with control plane (all ports)" [cite: 7]
+  description                  = "Allow unmanaged nodes to communicate with control plane (all ports)"
   from_port                    = 0
   to_port                      = 65535
   ip_protocol                  = "-1"
