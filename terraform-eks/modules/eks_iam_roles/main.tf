@@ -35,6 +35,11 @@ resource "aws_iam_role_policy_attachment" "eks_vpc_cni_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
+resource "aws_iam_role_policy_attachment" "eks_vpc_resource_controller_policy" {
+  role       = aws_iam_role.eks_cluster_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController" # Ajustado aqui
+}
+
 # IAM Role para os Managed Node Groups (Worker Nodes)
 resource "aws_iam_role" "eks_node_group_role" {
   name = "${var.cluster_name}-node-role"

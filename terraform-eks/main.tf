@@ -1,5 +1,4 @@
 # Arquivo: terraform-eks/main.tf
-
 locals {
   common_tags = var.common_tags
 }
