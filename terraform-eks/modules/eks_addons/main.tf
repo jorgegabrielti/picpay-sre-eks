@@ -7,8 +7,4 @@ resource "aws_eks_addon" "eks_pod_identity_agent" {
   tags = merge(var.common_tags, {
     Name = "${var.cluster_name}-pod-identity-agent-addon"
   })
-
-  depends_on = [
-    aws_eks_addon.vpc_cni 
-  ]
 }
